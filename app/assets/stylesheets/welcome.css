@@ -150,6 +150,9 @@ header {
   background: rgba(44,62,80,0.9);
   color: #FFFFFF;
 }
+.form-wrapper input{
+  color:black;
+}
 
 .simplemodal-overlay {
   background: #000000;
@@ -182,7 +185,7 @@ header {
   width:100px;
 }
 
-.matches tr{
+.matches .individual-child{
   display: inline-block;
 }
 

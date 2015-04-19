@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    # redirect_to "/users/#{current_user.id}/profiles" if user_signed_in?
+        @first_child = current_user.children.first if user_signed_in?
   end
 
 

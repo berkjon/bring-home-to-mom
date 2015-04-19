@@ -1,11 +1,14 @@
 <div class="filter-wrapper col span_2">
   <br>
   <p> Filters</p>
+  <h1 data-gender = "<%= @first_child.gender %>"><%= @first_child.first_name %></h1>
   Gender:
   <select name="gender" class="filterby">
-  <option value=""></option>
+  <option value="<%=format_gender(@first_child.sexual_preference)%>"></option>
   <option value="male">Male</option>
   <option value="female">Female</option>
+  <option value="other">Other</option>
+  <option value="both">Show All</option>
   </select>
   <br>
   Religion:
@@ -18,7 +21,13 @@
   <option value="Buddhist">Buddhist</option>
   </select>
   <br>
+  <br>
   Smoke:
+<!--   <form action="">
+  <input type="radio" name="smoke" value="true">True <br>
+  <input type="radio" name="smoke" value="false">False
+  </form> -->
+
   <select name="smoke" class="filterby">
   <option value=""></option>
   <option value="true">Yes</option>
@@ -26,13 +35,12 @@
   </select>
 </div>
 <div class="matches col span_8">
-  <table>
-    <tbody>
-    <% Child.all.each do |child| %>
-    <tr id="<%= child.id %>">
-      <td><img class="prof-img" src="<%=child.pf_image_1%>"></td>
-    </tr>
-    <% end %>
-    </tbody>
-  </table>
 </div>
+
+<script id="child_preview_template" type="x-handlebars-template">
+  {{#each match}}
+  <div class="individual-child" data-child-id ="{{id}}">
+    <img class="prof-img" src="{{pf_image_1}}">
+  </div>
+  {{/each}}
+</script>
