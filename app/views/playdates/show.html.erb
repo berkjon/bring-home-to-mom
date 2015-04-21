@@ -7,7 +7,7 @@
   </div>
 
   <div class=" col date-data span_8">
-    <div class="movie row">
+    <div class="date-data row">
       <h3> Budget:</h3>
       <h3> Date/Time:</h3>
     </div>
@@ -15,18 +15,29 @@
     <div class="movie row">
       <h2> Plan the Date: </h2>
       <h3> Movies </h3>
-        <div id="movie-wrap" class= "col span_8">
+        <div id="movie-wrap" class= "col span_12">
           <% @names_and_ids.each do |movie| %>
-            <a href="http://www.fandango.com/asdf_<%=movie.last[:fandango]%>/movietimes"><img class="movie-poster" alt = "<%= movie.first %>" src="<%= movie.last[:movie_poster]%>"></a>
-          <% end %>
-        </div>
-
-    </div>
+            <div class= "movie-flip">
+              <img class="movie-poster mv-box-front" alt = "<%= movie.first %>" src="<%= movie.last[:movie_poster]%>">
+              <div class="movie-poster mv-box-back hidden">
+                <h3><%= movie.first %></h3>
+                <ul>
+                  <li class="mv-synopsis">Synopsis: <%= movie.last[:synopsis] %></li>
+                  <li class="mv-mpaa-rating">Rating: <%= movie.last[:mpaa] %></li>
+                  <li class="mv-release-date">Release Date:<%= movie.last[:release_date] %></li>
+                  <li class="mv-runtime">Runtime: <%= movie.last[:runtime] %></li>
+                  <li class="mv-rt-score">RT score: <%= movie.last[:rating] %></li>
+                </ul>
+                <button class="add-to-package">Add to Package</button>
+              </div>
+            </div>
+            <% end %>
+            </div>
+      </div>
 
     <div class="restaurant row">
       <h2> Restaurants: </h2>
     </div>
-
     <div class="calendar row">
       <h2> Calendar: </h2>
     </div>

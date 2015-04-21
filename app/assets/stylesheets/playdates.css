@@ -1,8 +1,58 @@
 .movie-poster{
-  height:225px;
-  width:153px;
+  height:450px;
+  width:306px;
 }
 
 .playdate-container .row{
   border:1px solid lightgray;
+}
+
+
+div.slick-list.draggable{
+  height:450px; /*carousel height*/
+}
+
+.mv-synopsis{
+  font-size: .7em;
+}
+.add-to-package{
+  border: 1px solid gray;
+  background-color: #E2E2E2;
+  border-radius: 3px;
+  margin-left: 5em;
+
+}
+/***************** FLIP ANIMATION *****************/
+#movie-wrap{
+  position: relative;
+  perspective: 800px;
+}
+
+.movie-flip{
+  /*width: 100%;*/
+  height:225px;
+  width:153px;
+  /*position: absolute;*/
+  transform-style: preserve-3d;
+  transition: transform 1s;
+
+}
+
+.movie-flip .mv-box-front, .movie-flip .mv-box-back{
+  display: block;
+  position: absolute;
+  /*height: 100%;*/
+  backface-visibility: hidden;
+}
+.mv-box-back{
+  background-image: url(gray_texture.png);
+  border:1px solid gray;
+}
+
+.movie-flip .mv-box-back{
+  transform: rotateY(180deg);
+}
+
+.movie-flip.flipped {
+  transform: rotateY(180deg);
 }
